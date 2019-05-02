@@ -7,3 +7,4 @@ docker run -it docker-whale cowsay Hallo!
 # docker-whale:     Name of the image
 # cowsay:           Application inside the container
 # Hallo!            Argument for the application     
+

@@ -14,3 +14,5 @@ Install a Random Text generator and pipe the text to the applicaiton "cowsay".
 
 1) install fortunes
 2) pipe the output of the application /usr/games/fortune to cowsay
+
+

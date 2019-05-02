@@ -19,3 +19,7 @@ to check them run the following command:
 
 
 
+ 
+ Hint: get the package version with: 
+ 
+ apt-cache policy fortunes
