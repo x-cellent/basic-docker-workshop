@@ -1,18 +1,25 @@
-FROM python:3.6
+# use python:3.6 as image
 
-LABEL authors="Ferdinand Eckhard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>"
 
-RUN pip3 install \
-    flask \
-    redis \
-    requests \
-    uwsgi
 
-WORKDIR /app
+# add a "author" label
 
-COPY cmd.sh /
-COPY app/* /app/
 
-EXPOSE 9090 9091
 
-CMD ["/cmd.sh"]
+# install the following packages with pip3: flask, redis, requests, uwsgi
+
+
+
+# copy the startscript (cmd.sh) in the image
+
+
+
+# copy the app folder (./app) in the image
+
+
+
+# Expose the ports 9090 9091
+
+
+
+# Start the application script
