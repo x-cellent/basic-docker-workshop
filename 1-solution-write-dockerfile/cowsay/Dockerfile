@@ -4,6 +4,9 @@
 # latest: version of the image
 FROM xcellenthub/whalesay:latest
 
+# MAINTAINER:      DEPRICATED!
+MAINTAINER Ferdinand Eckard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>
+
 # add Random Context to be said by the application
 # RUN:      Runs the following command
 #           shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows
