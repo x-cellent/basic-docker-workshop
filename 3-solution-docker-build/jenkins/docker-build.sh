@@ -1,3 +1,3 @@
-docker build -t xcellenthub/whalesay:2.0 .
+docker build -t xcellenthub/jenkins:1.0 -t xcellenthub/jenkins:latest .
 
-docker images | grep xcellenthub/whalesay
+docker images | grep xcellenthub/jenkins
