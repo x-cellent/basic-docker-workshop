@@ -11,3 +11,4 @@ RUN apt-get update \
 ENTRYPOINT ["/bin/sh", "-c"]
 
 CMD ["/usr/games/fortune -a | cowsay"]
+

@@ -19,5 +19,5 @@ Install a Random Text generator and pipe the text to the applicaiton "cowsay".
 Solution:
 =========
 
-Create a file called "Dockerfile" and insert the following context:
+The soulution can be found in the Dockerfile.
 
