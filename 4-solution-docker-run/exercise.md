@@ -1,5 +1,5 @@
-Exercise: docker build
-======================
+Exercise: docker run
+====================
 
 1) start the created Images
 
