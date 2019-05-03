@@ -8,7 +8,7 @@ Exercise: docker build
 
 2) Enter the images and explore on which port the jenkins server is listening inside the container 
 
-- hint: configfile or open ports
+- hint: configfile or show open ports
 
 3) Map this port with the run command to the docker host 
 
@@ -21,21 +21,3 @@ Exercise: docker build
 - hint: mount a hostpath to the container
 
 7) Optional: Install an application like "sl" or "nano" inside the running container. Is it still there, after the container got restarted? (kill + run)
-
-Prerequirements
----------------
-
-- the images needs to be build already
-
-Verify that it is build with the following command:
-
-    docker image list
-
-if not there, build it:
-
-    run docker-build.sh
-
-Solution
-========
-
-Inspect the docker-run.sh files for the solutions
