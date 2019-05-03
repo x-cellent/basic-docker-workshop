@@ -7,3 +7,14 @@ Exercise: Linting!
 
 2) Improve the Dockerfiles!
 
+
+Hints:
+------
+
+To lint a Dockerfile run the following command:
+
+    docker run --rm -i hadolint/hadolint < Dockerfile
+
+get the package version with: 
+
+    apt-cache policy PACKAGENAME

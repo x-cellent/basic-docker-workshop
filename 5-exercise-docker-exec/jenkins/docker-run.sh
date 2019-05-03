@@ -8,28 +8,12 @@ docker run -it xcellenthub/jenkins:1.0 /bin/bash
 
 # 3) Map this port with the run command to the docker host 
 
-docker run -it xcellenthub/jenkins:1.0
-# Output when starting the container:
-# INFO: Started ServerConnector@5cc5b667{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
 
-# OR
-
-# get container id
-docker ps
-docker inspect -f '{{.State.Pid}}' 37f1dbb7f933
-# ==> 6733
-sudo nsenter -t 6733 -n netstat -tulpn
-# tcp        0      0 0.0.0.0:50000           0.0.0.0:*               LISTEN      6779/java           
-# tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      6779/java           
-# udp        0      0 0.0.0.0:33848           0.0.0.0:*                           6779/java           
-# udp        0      0 0.0.0.0:5353            0.0.0.0:*                           6779/java
-
+#"10080:8080"
 
 # 4) Verify the port mapping
 
-docker run -it -p 8080:8080 xcellenthub/jenkins:1.0
-#visit http://127.0.0.1:8080 from hostsystem
-#==> jenkins web gui
+
 
 # 5) Optional: Which user and rights do you have inside the container?
 
