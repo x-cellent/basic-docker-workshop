@@ -1,6 +1,6 @@
 # Multistaging
 
-# Step 1: create image that generate the compiled java App (image = openjdk:11-jdk)
+# Step 1: create image. copy the Countdown.java inside. Compile it. (image = openjdk:11-jdk)
 
 FROM openjdk:11-jdk as builder
 COPY src/main/java/workshop/Countdown.java /workshop/
