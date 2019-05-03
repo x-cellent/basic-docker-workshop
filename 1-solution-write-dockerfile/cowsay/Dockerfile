@@ -4,7 +4,7 @@
 # latest: version of the image
 FROM xcellenthub/whalesay:latest
 
-# MAINTAINER:      DEPRICATED!
+# MAINTAINER:      DEPRECATED!
 MAINTAINER Ferdinand Eckard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>
 
 # add Random Context to be said by the application
