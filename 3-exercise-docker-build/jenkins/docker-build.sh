@@ -1,1 +1,1 @@
-# Add a here your commands to archive the given exercise
+# Add a here your commands to solve the given exercise

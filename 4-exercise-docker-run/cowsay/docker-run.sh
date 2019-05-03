@@ -2,7 +2,7 @@
 docker run xcellenthub/whalesay:2.0 
 
 # Run own app inside the container (cowsay) with an argument (Hi)
-docker run xcellenthub/whalesay:2.0 cowsay Hi 
+docker run xcellenthub/whalesay:2.0 "cowsay Hi"
 
 docker run -it docker-whale cowsay Hallo!
 
