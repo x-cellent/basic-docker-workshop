@@ -103,6 +103,17 @@ services:
     ports:
       - "8080:8080"
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./monitoring/prometheus.conf:/prometheus.conf
+    links:
+      - cadvisor:cadvisor
+    ports:
+      - "10090:9090"
+    command: --config.file=/prometheus.conf
+
 # Erst in aufgabe 9 ?
 
 #  countdown:
