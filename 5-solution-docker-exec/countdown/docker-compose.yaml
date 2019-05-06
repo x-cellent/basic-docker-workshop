@@ -1,0 +1,8 @@
+---
+version: '3.5'
+
+services:
+  countdown:
+    build: ""
+    image: xcellenthub/countdown:1.0
+    container_name: countdown
