@@ -61,14 +61,26 @@ services:
     links:
       - elasticsearch
     ports:
-      - "127.0.0.1:5544:5544"
+      - "5544:5544"
+      - "5000:5000"
     command: -f /etc/logstash.conf
+
 
   elasticsearch:
     image: elasticsearch:7.0.0
     container_name: elasticsearch
     environment:
-      LOGSPOUT: ignore
+      - node.name=localhost
+      - discovery.seed_hosts=localhost
+      - cluster.initial_master_nodes=localhost
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - LOGSPOUT=ignore
+    ports:
+      - "9200:9200"
+
+
 
   kibana:
     image: kibana:7.0.0
@@ -94,24 +106,24 @@ services:
       - "8080:8080"
 
 # Erst in aufgabe 9 ?
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    volumes:
-      - ./monitoring/prometheus.conf:/prometheus.conf
-    links:
-      - cadvisor:cadvisor
-    ports:
-      - "10090:9090"
-    command: -config.file=/prometheus.conf
+#  prometheus:
+#    image: prom/prometheus
+#    container_name: prometheus
+#    volumes:
+#      - ./monitoring/prometheus.conf:/prometheus.conf
+#    links:
+#      - cadvisor:cadvisor
+#    ports:
+#      - "10090:9090"
+#    command: -config.file=/prometheus.conf
 
-  countdown:
-    image: xcellenthub/countdown:1.0
-    container_name: coutndown
-
-  cowsay:
-    image: xcellenthub/cowsay:1.0
-    container_name: cowsay
+#  countdown:
+#    image: xcellenthub/countdown:1.0
+#    container_name: coutndown
+#
+#  cowsay:
+#    image: xcellenthub/whalesay:1.0
+#    container_name: cowsay
 
 
 
