@@ -21,7 +21,7 @@ services:
     container_name: redis
 
   jenkins:
-    image: jenkins
+    image: xcellenthub/jenkins:1.0
     container_name: jenkins
     ports:
       - "10080:8080"
@@ -102,12 +102,26 @@ services:
     links:
       - cadvisor:cadvisor
     ports:
-      - "9090:9090"
+      - "10090:9090"
     command: -config.file=/prometheus.conf
+
+  countdown:
+    image: xcellenthub/countdown:1.0
+    container_name: coutndown
+
+  cowsay:
+    image: xcellenthub/cowsay:1.0
+    container_name: cowsay
+
+
 
 # Missing Components
 #
 # Countdown
 # Cowsay
-# nginx
+# nginx ==> zu proxy umbenennen
 # 
+
+#prometheus exited with code 1
+#logspout exited with code 1
+#elasticsearch exited with code 78
