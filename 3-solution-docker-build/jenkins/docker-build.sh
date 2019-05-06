@@ -1,3 +1,3 @@
-docker build -t xcellenthub/jenkins:1.0 -t xcellenthub/jenkins:latest .
+docker build -t localhost:5000/xcellenthublocal/jenkins:1.0 -t localhost:5000/xcellenthublocal/jenkins:latest .
 
-docker images | grep xcellenthub/jenkins
+docker images | grep xcellenthublocal/jenkins
