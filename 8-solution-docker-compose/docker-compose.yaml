@@ -1,0 +1,148 @@
+---
+version: '3.5'
+
+services:
+  identicon:
+    build: identicon
+    image: xcellenthub/identicon:1.0
+    container_name: identicon
+    ports:
+      - "9090:80"
+      - "9091:81"
+    links:
+      - dnmonster
+      - redis
+
+  dnmonster:
+    image: amouat/dnmonster:1.0
+    container_name: dnmonster
+
+  redis:
+    image: redis
+    container_name: redis
+
+  jenkins:
+    build: jenkins
+    image: xcellenthub/jenkins:1.0
+    container_name: jenkins
+    ports:
+      - "18080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  reverse-proxy:
+    build: reverse-proxy
+    image: xcellenthub/identicon-proxy:1.0
+    container_name: identicon-proxy
+    links:
+      - identicon
+    ports:
+      - "10080:80"
+    environment:
+      - NGINX_HOST=localhost:10080
+      - NGINX_PROXY=http://identicon:80
+
+  logspout:
+    image: amouat/logspout-logstash
+    container_name: logspout
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      ROUTE_URIS: logstash+tcp://logstash:5000
+    links:
+      - logstash
+    ports:
+      - "8000:80"
+
+  logstash:
+    image: logstash:7.0.0
+    container_name: logstash
+    volumes:
+      - ./logging/logstash.conf:/etc/logstash.conf
+    environment:
+      LOGSPOUT: ignore
+    links:
+      - elasticsearch
+    ports:
+      - "5544:5544"
+      - "5000:5000"
+    command: -f /etc/logstash.conf
+
+  elasticsearch:
+    image: elasticsearch:7.0.0
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      LOGSPOUT: ignore
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      discovery.type: single-node
+
+  kibana:
+    image: kibana:7.0.0
+    container_name: kibana
+    environment:
+      LOGSPOUT: ignore
+      elasticsearch.url: http://elasticsearch:9200
+      server.name: kibana
+      server.host: "0"
+    links:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+
+  cadvisor:
+    image: google/cadvisor
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    ports:
+      - "8080:8080"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./monitoring/prometheus.conf:/prometheus.conf
+    links:
+      - cadvisor:cadvisor
+    ports:
+      - "10090:9090"
+    command: --config.file=/prometheus.conf
+
+# Erst in aufgabe 9 ?
+
+#  countdown:
+#    image: xcellenthub/countdown:1.0
+#    container_name: coutndown
+#
+#  cowsay:
+#    image: xcellenthub/whalesay:1.0
+#    container_name: cowsay
+
+
+
+# Missing Components
+#
+# Countdown
+# Cowsay
+# nginx ==> zu proxy umbenennen
+# 
+
+#prometheus exited with code 1
+#logspout exited with code 1
+#elasticsearch exited with code 78
+ # prometheus:
+ #   image: prom/prometheus
+ #   container_name: prometheus
+ #   volumes:
+ #     - ./monitoring/prometheus.conf:/prometheus.conf
+ #   links:
+ #     - cadvisor:cadvisor
+ #   ports:
+ #     - "10090:9090"
+ #   command: "-config.file=/prometheus.conf"
