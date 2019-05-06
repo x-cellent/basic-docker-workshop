@@ -1,21 +1,23 @@
 Exercise: Write your own dockerfile!
 ====================================
 
-Write the Dockerfile of an application, that prints out a given Text.
+1) cowsay
 
-1) set base Dockerimage: 
-docker/whalesay
+Write the Dockerfile of an application, that prints out a given Text:
 
-2) set the application, that should be executed inside the container (entrypoint VS CMD): 
-cowsay
+- set base image: docker/whalesay
+- set the application, that should be executed inside the container (ENTRYPOINT vs. CMD): cowsay
+- Optional: Install a Random Text generator and pipe the text to the application "cowsay".
+    - install fortunes
+    - pipe the output of the application /usr/games/fortune to cowsay
 
-Optional:
-Install a Random Text generator and pipe the text to the applicaiton "cowsay".
+2) countdown
 
-1) install fortunes
-2) pipe the output of the application /usr/games/fortune to cowsay
+Write The dockerfile for ./countdown/Dockerfile
 
+3) identicon
 
+Write The dockerfile for ./identicon/Dockerfile
 Solution:
 =========
 

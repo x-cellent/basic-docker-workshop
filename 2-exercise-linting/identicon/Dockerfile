@@ -1,4 +1,4 @@
-# use python as image
+# use python:3.6 as image
 FROM python
 
 # add a "author" label
@@ -11,7 +11,7 @@ RUN pip3 install \
     requests \
     uwsgi
 
-WORKDIR /app
+WORKDIR app
 
 # copy the startscript (cmd.sh) in the image
 COPY cmd.sh /

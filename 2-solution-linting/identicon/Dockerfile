@@ -1,15 +1,15 @@
-# use python as image
-FROM python
+# use python:3.6 as image
+FROM python:3.6
 
 # add a "author" label
 LABEL authors="Ferdinand Eckhard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>"
 
 # install the following packages with pip3: flask, redis, requests, uwsgi
 RUN pip3 install \
-    flask \
-    redis \
-    requests \
-    uwsgi
+    flask==1.0.2 \
+    redis==3.2.1 \
+    requests==2.21.0 \
+    uwsgi==2.0.18
 
 WORKDIR /app
 

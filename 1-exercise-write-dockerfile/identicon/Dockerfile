@@ -1,4 +1,4 @@
-# use python:3.6 as image
+# use python as image
 
 
 

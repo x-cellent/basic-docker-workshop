@@ -1,0 +1,10 @@
+---
+version: "2"
+services:
+  identicon:
+    build: .
+    image: identicon:1.2
+    environment:
+      STAGE: unit
+    volumes:
+      - ./app:/app
