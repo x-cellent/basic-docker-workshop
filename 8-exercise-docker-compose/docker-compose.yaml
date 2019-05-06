@@ -47,13 +47,12 @@ services:
     container_name: logspout
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-#    environment:
-#      ROUTE_URIS: logstash+tcp://logstash.home.local:5000
+    environment:
+      ROUTE_URIS: logstash+tcp://logstash:5000
     links:
       - logstash
     ports:
       - "8000:80"
-    command: logstash://logstash:5000
 
   logstash:
     image: logstash:7.0.0
