@@ -9,7 +9,7 @@ docker run -it xcellenthub/jenkins:1.0 /bin/bash
 # 3) Map this port with the run command to the docker host 
 
 
-#"10080:8080"
+#"18080:8080"
 
 # 4) Verify the port mapping
 

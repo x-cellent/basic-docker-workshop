@@ -31,10 +31,9 @@ sudo nsenter -t 23117 -n netstat -tulpn
 
 # 4) Verify the port mapping
 
-docker run -it -p 80:80 xcellenthub/identicon:1.0
-# visit http://127.0.0.1:80 from hostsystem
-# ==> jenkins web gui
-# (Resdis must be running for the app to work)
+docker run -it -p 9090:80 xcellenthub/identicon:1.0
+# visit http://127.0.0.1:9090 from hostsystem
+# (Redis must be running for the app to work)
 
 
 # 5) Optional: Which user and rights do you have inside the container?
