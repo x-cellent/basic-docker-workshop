@@ -8,7 +8,7 @@ Exercise: docker run
 
 2) Enter the images and explore on which port the jenkins server is listening inside the container 
 
-- hint: configfile or open ports
+- hint: configfile / nsenter + netstat
 
 3) Map this port with the run command to the docker host 
 

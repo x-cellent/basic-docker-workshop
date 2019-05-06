@@ -5,10 +5,12 @@ Exercise: docker run
 
 - xcellenthub/whalesay:2.0
 - xcellenthub/jenkins:1.0
+- xcellenthub/identicon:1.0
+- xcellenthub/countdown:1.0
 
 2) Enter the images and explore on which port the jenkins server is listening inside the container 
 
-- hint: configfile or show open ports
+- hint: configfile / nsenter + netstat
 
 3) Map this port with the run command to the docker host 
 
@@ -21,3 +23,16 @@ Exercise: docker run
 - hint: mount a hostpath to the container
 
 7) Optional: Install an application like "sl" or "nano" inside the running container. Is it still there, after the container got restarted? (kill + run)
+
+Prerequirements
+---------------
+
+- the images needs to be build already
+
+Verify that it is build with the following command:
+
+    docker image list
+
+if not there, build it:
+
+    run docker-build.sh

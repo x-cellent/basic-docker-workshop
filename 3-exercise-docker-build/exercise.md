@@ -5,6 +5,8 @@ Exercise: docker build
 
 - ./cowsay/Dockerfile
 - ./jenkins/Dockerfile
+- ./countdown/Dockerfile
+- ./identicon/Dockerfile
 
 2) You should be able to print the local images
 
