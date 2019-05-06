@@ -1,0 +1,113 @@
+---
+version: '3.5'
+
+services:
+  identicon:
+    image: identicon:1.2
+    container_name: identicon
+    ports:
+      - "9090:80"
+      - "9091:81"
+    links:
+      - dnmonster
+      - redis
+
+  dnmonster:
+    image: amouat/dnmonster:1.0
+    container_name: dnmonster
+
+  redis:
+    image: redis
+    container_name: redis
+
+  jenkins:
+    image: jenkins
+    container_name: jenkins
+    ports:
+      - "10080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+# Erst in aufgabe 9 ?
+  reverse-proxy:
+    image: identicon-proxy
+    container_name: identicon-proxy
+    links:
+      - identicon
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=localhost:80
+      - NGINX_PROXY=http://identicon:80
+
+  logspout:
+    image: amouat/logspout-logstash
+    container_name: logspout
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    links:
+      - logstash
+    ports:
+      - "8000:80"
+    command: logstash://logstash:5000
+
+  logstash:
+    image: logstash:7.0.0
+    container_name: logstash
+    volumes:
+      - ./logging/logstash.conf:/etc/logstash.conf
+    environment:
+      LOGSPOUT: ignore
+    links:
+      - elasticsearch
+    ports:
+      - "127.0.0.1:5544:5544"
+    command: -f /etc/logstash.conf
+
+  elasticsearch:
+    image: elasticsearch:7.0.0
+    container_name: elasticsearch
+    environment:
+      LOGSPOUT: ignore
+
+  kibana:
+    image: kibana:7.0.0
+    container_name: kibana
+    environment:
+      LOGSPOUT: ignore
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    links:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+
+# Erst in aufgabe 9 ?
+  cadvisor:
+    image: google/cadvisor
+    container_name: cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    ports:
+      - "8080:8080"
+
+# Erst in aufgabe 9 ?
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./monitoring/prometheus.conf:/prometheus.conf
+    links:
+      - cadvisor:cadvisor
+    ports:
+      - "9090:9090"
+    command: -config.file=/prometheus.conf
+
+# Missing Components
+#
+# Countdown
+# Cowsay
+# nginx
+# 
