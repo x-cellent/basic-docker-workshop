@@ -27,9 +27,9 @@ docker run -d \
   --name identicon-proxy \
   --restart=always \
   --env NGINX_HOST=localhost \
-  --env NGINX_PROXY=http://identicon:9090 \
+  --env NGINX_PROXY=http://identicon:80 \
   --link identicon:identicon \
-  --publish 80:80 \
+  --publish 10080:80 \
   identicon-proxy
 
 docker run -d \

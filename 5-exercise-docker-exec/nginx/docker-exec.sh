@@ -6,7 +6,7 @@
 
 
 
-# 3) Change the website (/var/www/index.html) on runtime
+# 3) Change the website (/usr/share/nginx/html/index.html) on runtime
 
 
 
