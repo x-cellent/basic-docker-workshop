@@ -9,11 +9,11 @@ class TestCase(unittest.TestCase):
         self.app = identicon.app.test_client()
 
     def test_get_mainpage(self):
-        page = self.app.post("/", data=dict(name="MAC Mode"))
+        page = self.app.post("/", data=dict(name="identicon String"))
         assert page.status_code == 200
         assert 'Show identicon of' in str(page.data)
         assert 'Your identicon looks like a monster: ' in str(page.data)
-        assert 'MAC Mode' in str(page.data)
+        assert 'identicon String' in str(page.data)
 
     def test_html_escaping(self):
         page = self.app.post("/", data=dict(name='"><script language="javascript">alert("You were hacked")</script>'))

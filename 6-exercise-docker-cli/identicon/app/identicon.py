@@ -5,7 +5,7 @@ import html
 import hashlib
 
 app = Flask(__name__)
-default_name = 'MAC Mode'
+default_name = 'identicon String'
 salt = "unique salt"
 cache = redis.StrictRedis(host='redis', port=6379, db=0)
 
