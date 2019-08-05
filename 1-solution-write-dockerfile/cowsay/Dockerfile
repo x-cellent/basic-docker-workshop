@@ -2,7 +2,7 @@
 # docker: user / organisation name in the docker-registry 
 # whalesay: image name
 # latest: version of the image
-FROM xcellenthub/whalesay:latest
+FROM docker/whalesay:latest
 
 # MAINTAINER:      DEPRECATED!
 MAINTAINER Ferdinand Eckard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>

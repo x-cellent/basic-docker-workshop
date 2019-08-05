@@ -35,4 +35,4 @@ base images:
 Search
 ------
 
-Search for an image with the application "???". Write a docker-run file for it.
+Search for an image with the application kibana, logstash and elasticsearch. Write a docker-run file for it.

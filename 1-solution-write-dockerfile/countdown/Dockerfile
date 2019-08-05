@@ -10,5 +10,5 @@ RUN javac /workshop/Countdown.java
 
 FROM openjdk:11-jre
 COPY --from=builder /workshop/Countdown.class /app/workshop/
-WORKDIR app
+WORKDIR /app
 CMD ["java", "workshop.Countdown"]

@@ -1,5 +1,6 @@
 Exercise: docker compose
 ========================
+
 1) Start the encironment (prod.sh)
 2) verify that its running
 3) stop it

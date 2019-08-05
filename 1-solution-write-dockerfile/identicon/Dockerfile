@@ -1,5 +1,5 @@
 # use python as image
-FROM python
+FROM python:3.6
 
 # add a "author" label
 LABEL authors="Ferdinand Eckhard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>"

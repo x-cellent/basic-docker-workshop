@@ -14,3 +14,6 @@ Look at the docker-compose.yaml file
 
 run with docker-compose up
 exit with docker-compose down
+
+---
+version: '3.5'

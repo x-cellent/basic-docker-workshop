@@ -79,7 +79,7 @@ docker pull alpine
 docker images
 
 - centos = 202MB
-- debian = 55.3MB
+- debian = 100
 - alpine = 5.53MB
 - busybox = 1.2MB
 
