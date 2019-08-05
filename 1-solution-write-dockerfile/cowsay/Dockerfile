@@ -1,8 +1,8 @@
 # FROM: which base image to use
-# docker: user / organisation name in the docker-registry 
+# xcellenthub: user / organisation name in the docker-registry
 # whalesay: image name
 # latest: version of the image
-FROM docker/whalesay:latest
+FROM xcellenthub/whalesay:latest
 
 # MAINTAINER:      DEPRECATED!
 MAINTAINER Ferdinand Eckard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sandro.koll@x-cellent.com>
@@ -12,9 +12,6 @@ MAINTAINER Ferdinand Eckard <ferdinand.eckhard@x-cellent.com>, Sandro Koll <sand
 #           shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows
 RUN apt-get -y update && apt-get install -y fortunes
 
-# ENTRYPOINT:
-ENTRYPOINT /bin/sh -c
-
 # CMD:
-CMD /usr/games/fortune -a | cowsay
+CMD /usr/games/fortune | cowsay
 

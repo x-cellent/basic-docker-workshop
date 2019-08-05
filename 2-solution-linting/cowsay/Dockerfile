@@ -8,7 +8,5 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["/bin/sh", "-c"]
-
-CMD ["/usr/games/fortune -a | cowsay"]
+CMD ["/usr/games/fortune | cowsay"]
 
