@@ -1,8 +1,12 @@
 FROM openjdk:11-jdk as builder
-COPY src/main/java/workshop/Countdown.java /workshop/
-RUN javac /workshop/Countdown.java
+
+COPY src/main/java/docker_workshop /docker_workshop/
+
+RUN javac /docker_workshop/Countdown.java
+
 
 FROM openjdk:11-jre
-COPY --from=builder /workshop/Countdown.class /app/workshop/
-WORKDIR /app
-CMD ["java", "workshop.Countdown"]
+
+COPY --from=builder /docker_workshop/Countdown.class /docker_workshop/
+
+CMD ["java", "docker_workshop.Countdown"]

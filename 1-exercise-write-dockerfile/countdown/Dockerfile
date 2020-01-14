@@ -1,25 +1,12 @@
 # Multistaging
 
-# Step 1: create image. copy the Countdown.java inside. Compile it. (image = openjdk:11-jdk)
+# Stage 0:
+#   - inherit from "openjdk:11-jdk"
+#   - burn "Countdown.java" to "/docker_workshop"
+#   - compile it
 
+# Stage 1:
+#   - inherit from "openjdk:11-jre"
+#   - take over compiled app from stage 0 to enable the following CMD command
 
-
-
-
-
-
-
-# Step 2: create new image. Copy compiled app from other image inside this one and run it.  (image = openjdk:11-jre)
-
-
-
-
-
-
-
-
-# Run the app
-CMD ["java", "workshop.Countdown"]
-
-# Hint:
-# The compiled app needs to be located in ./workshop/Countdown.class
+CMD ["java", "docker_workshop.Countdown"]
