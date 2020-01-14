@@ -16,4 +16,4 @@ run with docker-compose up
 exit with docker-compose down
 
 ---
-version: '3.5'
+version: "3.5"
