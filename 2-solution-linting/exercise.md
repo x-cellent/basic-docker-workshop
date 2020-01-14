@@ -13,3 +13,11 @@ Solution:
 =========
 
 Check the Dockerfiles here to see example solutions.
+
+Command: 
+
+´´´bash
+
+docker run --rm -t -v $PWD:/pwd:ro hadolint/hadolint hadolint /pwd/Dockerfile
+
+´´´
