@@ -1,24 +1,26 @@
 Exercise: docker compose
 ========================
-1) Start the encironment (prod.sh)
-2) verify that its running
-3) stop it
-4) extend docker-compose.yaml 
 
-The docker-compose.yaml alredy incluedes cowsay and kibana. extend it with the following components:
-
-- elasticsearch
-- identicon
-- dnmonster
-- redis
-- jenkins
-- reverse-proxy
-- logstash (+logspout)
-
-5) Verify that the docker-compose environment is running correctly
+1. Start the encironment (prod.sh)
+2. Verify that its running
+3. Stop it
+4. Extend docker-compose.yaml
+   
+      The docker-compose.yaml already includes cowsay and kibana. Extend it with the following components:
+    
+      - elasticsearch
+      - identicon
+      - dnmonster
+      - redis
+      - jenkins
+      - reverse-proxy
+      - logstash (+logspout)
+  
+1. Verify that the docker-compose environment is running correctly
     - Get a clean environment: remove all images, stop all container
     - Start it with docker compose 
     - Verify that its working
+
 
 Solution:
 =========

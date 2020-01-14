@@ -1,13 +1,13 @@
 Exercise: Linting!
 ==================
 
-1) check the following files for linting errors:
+1. Check the following files for linting errors:
 
-- ./jenkins/Dockerfile
-- ./countdown/Dockerfile
-- ./identicon/Dockerfile
+    - ./jenkins/Dockerfile
+    - ./countdown/Dockerfile
+    - ./identicon/Dockerfile
 
-2) Improve the Dockerfiles!
+1. Improve the Dockerfiles
 
 
 Hints:
@@ -15,8 +15,12 @@ Hints:
 
 To lint a Dockerfile run the following command:
 
-    docker run --rm -i hadolint/hadolint < Dockerfile
+```
+docker run --rm -i hadolint/hadolint < Dockerfile
+```
 
-get the package version with: 
+Print the package version with: 
 
-    apt-cache policy PACKAGENAME
+```
+apt-cache policy <package-name>
+```

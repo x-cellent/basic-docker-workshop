@@ -24,11 +24,7 @@ Exercise: docker run
 
 1. Optional: Install an application like "sl" or "nano" inside the running container. Is it still there, after the container got restarted? (kill + run)
 
-Prerequisites
--------------
+Solution
+========
 
-The images needs to be built already.
-
-```
-./docker-build.sh
-```
+Inspect the corresponding `docker-run.sh` files.

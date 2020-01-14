@@ -4,19 +4,15 @@ Exercise: docker registry
 Run own Registry:
 -----------------
 
-1) Run the registry 
+1. Run the registry 
 
+2. Push the image to the registry
 
-2) Push the image to the registry
+3. delete the local image
 
+4. Verify that it is deleted
 
-3) deleate the local image
-
-
-4) Verify that it is deleated
-
-
-5) run / pull the image
+5. run / pull the image
 
 
 Tasks for base images:

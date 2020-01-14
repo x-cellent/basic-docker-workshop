@@ -1,23 +1,23 @@
-Exercise: docker cli
+Exercise: docker CLI
 ====================
 
-1) start the identicon system
+1. Start the identicon system:
 
-- xcellenthub/identicon:1.0
-- xcellenthub/dnmonster
-- xcellenthub/redis
+    - xcellenthub/identicon:1.0
+    - xcellenthub/dnmonster
+    - xcellenthub/redis
 
-2) explore the containers by finding their
+1. Explore the containers by finding their
 
-- names
-- port mappings
-- volumes
-- IP addresses
-- labels
-- container IDs
+    - names
+    - port mappings
+    - volumes
+    - IP addresses
+    - labels
+    - container IDs
 
-3) Save the identicon image as archive to disk
+1. Save the identicon image as archive to disk
 
-4) Delete the identicon image from local Docker system
+1. Delete the identicon image from local Docker cache
 
-5) Load saved identicon image archive back into local Docker system
+1. Load saved identicon image archive back into local Docker cache
