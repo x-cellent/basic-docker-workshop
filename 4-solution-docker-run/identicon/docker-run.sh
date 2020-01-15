@@ -74,7 +74,7 @@ exit
 docker run -it xcellenthub/identicon:1.0 /bin/bash
 nano
 
-# Result: Modifications to a running container does not apply on the image!
+# Result: Modifications to a running container do not affect the image!
 
 
 

@@ -1,0 +1,4 @@
+.idea
+.docker-compose.yaml
+.showcase.sh
+.clean.sh

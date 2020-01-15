@@ -58,5 +58,5 @@ exit
 docker run -it xcellenthub/jenkins:1.0 /bin/bash
 nano --version
 
-# Result: Modifications to a running container does not apply on the image!
+# Result: Modifications to a running container do not affect the image!
 

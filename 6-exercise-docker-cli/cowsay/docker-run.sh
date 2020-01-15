@@ -72,7 +72,7 @@ exit
 docker run -it xcellenthub/whalesay:2.0 /bin/bash
 sl
 
-# Result: Modifications to a running container does not apply on the image!
+# Result: Modifications to a running container do not affect the image!
 
 
 
