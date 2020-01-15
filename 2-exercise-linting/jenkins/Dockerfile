@@ -3,7 +3,7 @@ FROM jenkins/jenkins
 USER root
 
 RUN apt-get update
-RUN apt install -y apt-transport-https gnupg2 software-properties-common
+RUN apt-get install -y apt-transport-https gnupg2 software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
 RUN apt-get update

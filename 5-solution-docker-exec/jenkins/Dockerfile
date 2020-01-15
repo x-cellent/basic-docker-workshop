@@ -4,8 +4,10 @@ LABEL authors="Ferdinand Eckhard <ferdinand.eckhard@x-cellent.com>, Sandro Koll 
 
 USER root
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update \
- && apt install -y --no-install-recommends \
+ && apt-get install -y --no-install-recommends \
     apt-transport-https=1.4.9 \
     gnupg2=2.1.18-8~deb9u4 \
     software-properties-common=0.96.20.2-1 \
