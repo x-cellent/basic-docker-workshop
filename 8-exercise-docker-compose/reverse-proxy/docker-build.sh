@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
-docker build -t identicon-proxy .
+docker build -t xcellenthub/reverse-proxy:1.0 .

@@ -21,16 +21,16 @@ docker run -d \
   --restart=always \
   --link dnmonster:dnmonster \
   --link redis:redis \
-  identicon:1.2
+  xcellenthub/identicon:1.0
 
 docker run -d \
-  --name identicon-proxy \
+  --name reverse-proxy \
   --restart=always \
   --env NGINX_HOST=localhost \
   --env NGINX_PROXY=http://identicon:80 \
   --link identicon:identicon \
   --publish 10080:80 \
-  identicon-proxy
+  xcellenthub/reverse-proxy:1.0
 
 docker run -d \
   --name logspout \

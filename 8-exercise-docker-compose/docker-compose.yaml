@@ -32,8 +32,8 @@ services:
 
   reverse-proxy:
     build: reverse-proxy
-    image: xcellenthub/identicon-proxy:1.0
-    container_name: identicon-proxy
+    image: xcellenthub/reverse-proxy:1.0
+    container_name: reverse-proxy
     links:
       - identicon
     ports:

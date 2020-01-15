@@ -4,7 +4,7 @@ version: "3.5"
 services:
   identicon:
     build: .
-    image: identicon:1.2
+    image: xcellenthub/identicon:1.0
     environment:
       STAGE: unit
     volumes:
