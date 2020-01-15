@@ -17,6 +17,8 @@ docker run -it xcellenthub/whalesay:2.0 cowsay Hallo!
 # Enter the container
 # docker run -it docker-whale /bin/bash
 
+#!/usr/bin/env bash
+
 # 1) start the created Images
 
 docker run -it xcellenthub/whalesay:2.0 cowsay Hallo!

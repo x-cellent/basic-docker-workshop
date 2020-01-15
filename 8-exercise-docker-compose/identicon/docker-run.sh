@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 1) start the created Images
 
 docker run -it xcellenthub/identicon:1.0

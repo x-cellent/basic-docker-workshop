@@ -17,6 +17,8 @@ docker run -it docker-whale cowsay Hallo!
 # Enter the container
 # docker run -it docker-whale /bin/bash
 
+#!/usr/bin/env bash
+
 # 1) Start the created Images
 
 

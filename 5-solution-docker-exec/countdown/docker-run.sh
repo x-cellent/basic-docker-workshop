@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 1) start the created Images
 
 docker run -it xcellenthub/countdown:1.0

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 1) Start a nginx server as container (nginx)
 
 CID=docker run -d -p 10080:80 nginx

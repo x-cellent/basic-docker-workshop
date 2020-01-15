@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 1) Start a nginx server as container (nginx)
 
 
