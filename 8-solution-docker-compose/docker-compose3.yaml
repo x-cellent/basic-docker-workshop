@@ -1,0 +1,20 @@
+---
+version: "3.5"
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.0.0
+    container_name: elasticsearch
+    depends_on:
+      - logspout
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      LOGSPOUT: ignore
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      discovery.type: single-node
+      node.name: localhost
+      discovery.seed_hosts: localhost
+      cluster.initial_master_nodes: localhost
+      bootstrap.memory_lock: "false"
