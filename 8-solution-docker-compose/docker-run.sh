@@ -6,8 +6,6 @@ set +e
 
 set -e
 
-echo "Starting identicon system..."
-
 docker run -d \
   --name dnmonster \
   --restart=always \
@@ -87,5 +85,3 @@ docker run -d \
   --publish 9090:9090 \
   prom/prometheus \
   --config.file=/prometheus.conf
-
-echo "OK"
