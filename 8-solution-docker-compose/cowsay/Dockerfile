@@ -9,5 +9,4 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-CMD ["/usr/games/fortune | cowsay"]
-
+CMD /usr/games/fortune | cowsay
