@@ -2,4 +2,4 @@
 
 # Install apt package "fortunes" (RUN)
 
-# Specify start command "/usr/games/fortune | cowsay" (CMD)
+# Specify start command "/usr/games/fortune | cowsay" (CMD, use shell form since we use the pipe operator)

@@ -2,7 +2,7 @@
 
 
 
-# add a "author" label
+# add an "author" label
 
 
 
@@ -10,11 +10,11 @@
 
 
 
-# copy the startscript (cmd.sh) in the image
+# copy the cmd-script (cmd.sh) into the image
 
 
 
-# copy the app folder (./app) in the image
+# copy the app folder (./app) into the image
 
 
 
@@ -22,4 +22,4 @@
 
 
 
-# Start the application script
+# Start the cmd-script

@@ -13,10 +13,10 @@ RUN pip3 install \
 
 WORKDIR app
 
-# copy the startscript (cmd.sh) in the image
+# copy the startscript (cmd.sh) into the image
 COPY cmd.sh /
 
-# copy the app folder (./app) in the image
+# copy the app folder (./app) into the image
 COPY app/* /app/
 
 # Expose the ports 9090 9091

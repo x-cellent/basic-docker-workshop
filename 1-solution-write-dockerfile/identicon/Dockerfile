@@ -10,14 +10,14 @@ RUN pip3 install     flask     redis     requests     uwsgi
 
 WORKDIR /app
 
-# copy the startscript (cmd.sh) in the image
+# copy the cmd-script (cmd.sh) into the image
 COPY cmd.sh /
 
-# copy the app folder (./app) in the image
+# copy the app folder (./app) into the image
 COPY app/* /app/
 
 # Expose the ports 9090 9091
 EXPOSE 9090 9091
 
-# Start the application script
+# Start the cmd-script
 CMD ["/cmd.sh"]
