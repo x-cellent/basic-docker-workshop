@@ -42,6 +42,29 @@ docker run -d \
   -f /etc/logstash.conf
 
 docker run -d \
+  --name logspout \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --volume /var/run:/var/run:rw \
+  --publish 8000:80 \
+  --link logstash \
+  --restart on-failure \
+  amouat/logspout-logstash \
+  logstash://logstash:5000
+
+docker run -d \
+  --name elasticsearch \
+  --env LOGSPOUT=ignore \
+  --env ES_JAVA_OPTS="-Xms512m -Xmx512m" \
+  --env discovery.type=single-node \
+  --env node.name=localhost \
+  --env discovery.seed_hosts=localhost \
+  --env bootstrap.memory_lock=false \
+  --publish 9200:9200 \
+  --publish 9300:9300 \
+  --restart on-failure \
+  elasticsearch:7.0.0
+
+docker run -d \
   --name kibana \
   --env LOGSPOUT=ignore \
   --env ELASTICSEARCH_URL=http://elasticsearch:9200 \
@@ -64,30 +87,5 @@ docker run -d \
   --publish 9090:9090 \
   prom/prometheus \
   --config.file=/prometheus.conf
-
-sleep 40
-
-docker run -d \
-  --name logspout \
-  --volume /var/run/docker.sock:/var/run/docker.sock \
-  --volume /var/run:/var/run:rw \
-  --publish 8000:80 \
-  --link logstash \
-  amouat/logspout-logstash \
-  logstash://logstash:5000
-
-sleep 2
-
-docker run -d \
-  --name elasticsearch \
-  --env LOGSPOUT=ignore \
-  --env ES_JAVA_OPTS="-Xms512m -Xmx512m" \
-  --env discovery.type=single-node \
-  --env node.name=localhost \
-  --env discovery.seed_hosts=localhost \
-  --env bootstrap.memory_lock=false \
-  --publish 9200:9200 \
-  --publish 9300:9300 \
-  elasticsearch:7.0.0
 
 echo "OK"

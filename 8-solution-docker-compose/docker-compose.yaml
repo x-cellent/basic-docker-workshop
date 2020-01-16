@@ -37,6 +37,17 @@ services:
       - NGINX_HOST=localhost:10080
       - NGINX_PROXY=http://identicon:80
 
+  logspout:
+    image: amouat/logspout-logstash
+    container_name: logspout
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      ROUTE_URIS: logstash+tcp://logstash:5000
+    ports:
+      - "8000:80"
+
   logstash:
     image: logstash:7.0.0
     container_name: logstash
@@ -48,6 +59,21 @@ services:
       - "5544:5544"
       - "5000:5000"
     command: -f /etc/logstash.conf
+
+  elasticsearch:
+    image: elasticsearch:7.0.0
+    container_name: elasticsearch
+    restart: on-failure
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      LOGSPOUT: ignore
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      discovery.type: single-node
+      node.name: localhost
+      discovery.seed_hosts: localhost
+      bootstrap.memory_lock: "false"
 
   kibana:
     image: kibana:7.0.0

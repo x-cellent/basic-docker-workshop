@@ -4,13 +4,13 @@ set +e
 
 docker system prune -f
 
-docker rm -f dnmonster
-docker rm -f redis
-docker rm -f identicon
-docker rm -f reverse-proxy
-docker rm -f logstash
-docker rm -f kibana
-docker rm -f cadvisor
-docker rm -f prometheus
-docker rm -f logspout
-docker rm -f elasticsearch
+docker rm -f dnmonster >/dev/null 2>&1
+docker rm -f redis >/dev/null 2>&1
+docker rm -f identicon >/dev/null 2>&1
+docker rm -f reverse-proxy >/dev/null 2>&1
+docker rm -f logstash >/dev/null 2>&1
+docker rm -f kibana >/dev/null 2>&1
+docker rm -f cadvisor >/dev/null 2>&1
+docker rm -f prometheus >/dev/null 2>&1
+docker rm -f logspout >/dev/null 2>&1
+docker rm -f elasticsearch >/dev/null 2>&1
