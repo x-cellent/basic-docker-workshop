@@ -1,7 +1,7 @@
 Exercise: docker compose
 ========================
 
-1. Start the encironment (prod.sh)
+1. Start the encironment (docker-run.sh)
 2. Verify that its running
 3. Stop it
 4. Extend docker-compose.yaml

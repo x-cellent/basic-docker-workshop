@@ -1,7 +1,7 @@
 Exercise: docker compose
 ========================
 
-The environment can manualy be started with the prod.sh file.
+The environment can manually be started with the docker-run.sh file.
 
 The Task is, to convert this in a docker-compose.yaml file.
 

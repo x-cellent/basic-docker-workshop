@@ -1,6 +1,8 @@
 Exercise: docker exec
 =====================
 
+1. Change into nginx directory
+
 1. Start an nginx container
 
 1. Connect to the container
